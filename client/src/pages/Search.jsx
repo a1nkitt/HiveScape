@@ -19,9 +19,10 @@ export default function Search() {
     //   console.log(sidebardata);
 
   const [loading, setLoading] = useState(false);
-  const [showMore, setShowMore] = useState(false);
   const [listings, setListings] = useState([]);
-console.log(listings)
+// console.log(listings)
+const [showMore, setShowMore] = useState(false);
+
     useEffect(() => {
         const urlParams = new URLSearchParams(location.search);
         const searchTermFromUrl = urlParams.get('searchTerm');
@@ -119,7 +120,7 @@ console.log(listings)
         const searchQuery = urlParams.toString();
         navigate(`/search?${searchQuery}`);
       };
-
+      //onShowMoreClick function
       const onShowMoreClick = async () => {
         const numberOfListings = listings.length;
         const startIndex = numberOfListings;
@@ -255,7 +256,7 @@ console.log(listings)
             listings.map((listing) => (
               <ListingItem key={listing._id} listing={listing} />
             ))}
-
+          
           {showMore && (
             <button
               onClick={onShowMoreClick}
