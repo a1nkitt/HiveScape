@@ -34,7 +34,7 @@ app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/listing", listingRouter);
 
-app.use(express.static(path.join(__dirname,'/client/build')))
+app.use(express.static(path.join(__dirname,'/client/dest')))
 
 
 app.get("*", (req, res) => {
